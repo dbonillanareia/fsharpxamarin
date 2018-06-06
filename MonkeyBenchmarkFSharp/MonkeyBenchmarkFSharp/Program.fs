@@ -25,7 +25,7 @@ type MonkeyBenchmark() =
     member val public N = 0 with get, set
 
     [<Benchmark>]
-    member this.AddMonkeyss() =
+    member this.AddMonkeysAlternative() =
         let rec loop theMonkeys max current =
             if current > max then
                 theMonkeys
@@ -50,13 +50,27 @@ type MonkeyBenchmark() =
 
             monkeys.Add(monkey)
 
-
     [<Benchmark>]
     member this.GetMonkeys() =
 
         let doJsonStuff = async { 
                 let client = new HttpClient()
                 let! json = client.GetStringAsync("https://my-json-server.typicode.com/dbonillanareia/fsharpxamarin/monkeys")                         
+                                |> Async.AwaitTask                                                     
+
+                let items = JsonConvert.DeserializeObject<Monkey list>(json)
+
+                for item in items do monkeys.Add(item)
+            }
+
+        doJsonStuff |> Async.RunSynchronously 
+
+    [<Benchmark>]
+    member this.GetPhotos() =
+
+        let doJsonStuff = async { 
+                let client = new HttpClient()
+                let! json = client.GetStringAsync("https://jsonplaceholder.typicode.com/photos")                         
                                 |> Async.AwaitTask                                                     
 
                 let items = JsonConvert.DeserializeObject<Monkey list>(json)
