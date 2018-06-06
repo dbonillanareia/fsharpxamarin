@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>MonkeyBenchmark</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.10.14, OS=macOS High Sierra 10.13.5 (17F77) [Darwin 17.6.0]
+Intel Core i5-7360U CPU 2.30GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cores
+.NET Core SDK=2.1.4
+  [Host]   : .NET Core 2.0.5 (CoreCLR 4.6.0.0, CoreFX 4.6.26018.01), 64bit RyuJIT DEBUG  [AttachedDebugger]
+  QuickJob : .NET Core 2.0.5 (CoreCLR 4.6.0.0, CoreFX 4.6.26018.01), 64bit RyuJIT
+  ShortRun : .NET Core 2.0.5 (CoreCLR 4.6.0.0, CoreFX 4.6.26018.01), 64bit RyuJIT
+</code></pre>
+<pre><code>LaunchCount=1  WarmupCount=3  
+</code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>Job</th><th>InvocationCount</th><th>TargetCount</th><th>UnrollFactor</th><th>N</th><th>    Mean</th><th>    Error</th><th>  StdDev</th><th>Rank</th>
+</tr>
+</thead><tbody><tr><td>AddMonkeyss</td><td>QuickJob</td><td>100</td><td>5</td><td>1</td><td>100</td><td>10.305 us</td><td>8.4861 us</td><td>2.2042 us</td><td>2</td>
+</tr><tr><td>AddMonkeys</td><td>QuickJob</td><td>100</td><td>5</td><td>1</td><td>100</td><td>11.177 us</td><td>5.8730 us</td><td>1.5255 us</td><td>2</td>
+</tr><tr><td>GetMonkeys</td><td>QuickJob</td><td>100</td><td>5</td><td>1</td><td>100</td><td>345,435.276 us</td><td>51,604.7188 us</td><td>13,404.1337 us</td><td>4</td>
+</tr><tr><td>AddMonkeyss</td><td>ShortRun</td><td>1</td><td>3</td><td>16</td><td>100</td><td>6.790 us</td><td>0.1384 us</td><td>0.0078 us</td><td>1</td>
+</tr><tr><td>AddMonkeys</td><td>ShortRun</td><td>1</td><td>3</td><td>16</td><td>100</td><td>25.923 us</td><td>236.4523 us</td><td>13.3600 us</td><td>2</td>
+</tr><tr><td>GetMonkeys</td><td>ShortRun</td><td>1</td><td>3</td><td>16</td><td>100</td><td>358,079.757 us</td><td>590,123.7522 us</td><td>33,343.0863 us</td><td>4</td>
+</tr><tr><td>AddMonkeyss</td><td>QuickJob</td><td>100</td><td>5</td><td>1</td><td>10000</td><td>1,920.307 us</td><td>815.4627 us</td><td>211.8134 us</td><td>3</td>
+</tr><tr><td>AddMonkeys</td><td>QuickJob</td><td>100</td><td>5</td><td>1</td><td>10000</td><td>2,149.856 us</td><td>1,237.5691 us</td><td>321.4540 us</td><td>3</td>
+</tr><tr><td>GetMonkeys</td><td>QuickJob</td><td>100</td><td>5</td><td>1</td><td>10000</td><td>342,773.659 us</td><td>74,075.1772 us</td><td>19,240.7517 us</td><td>4</td>
+</tr><tr><td>AddMonkeyss</td><td>ShortRun</td><td>1</td><td>3</td><td>16</td><td>10000</td><td>1,810.704 us</td><td>90.9701 us</td><td>5.1400 us</td><td>3</td>
+</tr><tr><td>AddMonkeys</td><td>ShortRun</td><td>1</td><td>3</td><td>16</td><td>10000</td><td>2,969.151 us</td><td>26,416.0867 us</td><td>1,492.5579 us</td><td>3</td>
+</tr><tr><td>GetMonkeys</td><td>ShortRun</td><td>1</td><td>3</td><td>16</td><td>10000</td><td>367,372.417 us</td><td>732,894.9807 us</td><td>41,409.9255 us</td><td>4</td>
+</tr></tbody></table>
+</body>
+</html>
