@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonkeyBenchmarkCSharp", "MonkeyBenchmarkCSharp\MonkeyBenchmarkCSharp.csproj", "{E851E749-30E8-4608-BB8A-ACD287B40DDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E851E749-30E8-4608-BB8A-ACD287B40DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E851E749-30E8-4608-BB8A-ACD287B40DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E851E749-30E8-4608-BB8A-ACD287B40DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E851E749-30E8-4608-BB8A-ACD287B40DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
