@@ -2,12 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:FSharpFibonacci" 
-             x:Class="FSharpFibonacci.MainPage">
+             x:Class="FSharpFibonacci.MainPage"
+             BackgroundColor="#083366">
 
-    <StackLayout VerticalOptions="Center">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+    
         <Entry Text="{Binding Path=[n]}" HorizontalOptions="Center"/>
-        <Button Text="Fibonacci"
-                Command="{Binding Path=[Calculate]}"/>
-        <Label Text="{Binding Path=[fn]}" HorizontalOptions="Center"/>
-    </StackLayout>         
+        
+        <Button Text="Calculate"
+                Command="{Binding Path=[Calculate]}"
+                TextColor="#fff"
+                FontSize="Large"/>
+
+        <StackLayout Orientation="Horizontal">
+        <Label Text="{Binding Path=[n], StringFormat='fibonacci ({0}) = '}"
+                   TextColor="#fff"/>
+            
+        <Label Text="{Binding Path=[fn]}" 
+                   TextColor="#fff"/>
+        </StackLayout>
+    </StackLayout>    
 </ContentPage>

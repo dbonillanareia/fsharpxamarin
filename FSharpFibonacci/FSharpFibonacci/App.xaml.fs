@@ -13,7 +13,7 @@ type Model =
 
 type Msg =  
     | Calculate
-    | Setn of int
+    | Setn of string
 
 type App() =
     inherit Application()
@@ -27,7 +27,7 @@ type App() =
     // Fibonacci's function
     let rec fib n =
         match n with
-        | 1 | 2 -> 1
+        | 0 | 1 -> 1
         | n -> fib(n-1) + fib(n-2)
 
     let update msg model =
@@ -38,13 +38,13 @@ type App() =
                     fn = fib model.n
                     n = model.n
                 }
-            | Setn n -> { model with n = n }
+            | Setn n -> { model with n = n |> int }
 
     let view () =  
         MainPage(),
         [ "fn" |> Binding.oneWay (fun m -> m.fn.ToString())
           "Calculate" |> Binding.msg Calculate
-          "n" |> Binding.twoWay (fun m -> string m.n) (fun v -> Setn (int (v)))
+          "n" |> Binding.twoWay (fun m -> string m.n) (fun v -> Setn (string (v)))
         ]
 
     let runner =  
