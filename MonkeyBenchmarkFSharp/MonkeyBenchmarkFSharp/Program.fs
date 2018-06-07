@@ -55,6 +55,7 @@ type MonkeyBenchmark() =
 
         let doJsonStuff = async { 
                 let client = new HttpClient()
+                //30 monkeys
                 let! json = client.GetStringAsync("https://my-json-server.typicode.com/dbonillanareia/fsharpxamarin/monkeys")                         
                                 |> Async.AwaitTask                                                     
 
@@ -70,6 +71,7 @@ type MonkeyBenchmark() =
 
         let doJsonStuff = async { 
                 let client = new HttpClient()
+                //5000 photos
                 let! json = client.GetStringAsync("https://jsonplaceholder.typicode.com/photos")                         
                                 |> Async.AwaitTask                                                     
 
