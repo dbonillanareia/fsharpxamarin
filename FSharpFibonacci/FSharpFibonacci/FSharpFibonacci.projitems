@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{1859B838-421B-4EC1-9B8B-46C93F0B873E}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>FSharpFibonacci</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.fs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.fs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>
